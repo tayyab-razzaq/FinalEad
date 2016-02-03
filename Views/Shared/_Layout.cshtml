@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    
+    <style>
+        /* footer */
+footer {
+    padding-top: 20px;
+    font-size: 12px;
+    color: #6b6b6b;
+    text-align: center;
+    min-height: 25px;
+    max-height: 50px;
+    padding-bottom: 20px;
+}
+
+    footer a {
+    }
+
+        footer a:hover {
+        }
+        footer{
+    display: block;
+    }
+        footer .left {
+    width: 598px;
+}
+        footer {
+    clear: both;
+    background-color: #e2e2e2;
+    font-size: .8em;
+    height: 100px;
+}
+
+    </style>
+
+    <link href="~/pageicon.ico" rel="shortcut icon" type="image/x-icon" />
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(window).load(function () {
+            $(".loader").fadeOut("slow");
+        })
+    </script>
+
+
+</head>
+<body id="page1">
+    <div class="loader"></div>
+
+    @RenderBody()
+
+    <div class="main">
+        <!-- footer -->
+        <footer>
+            <div class="wrapper">
+                <div class="content-wrapper">
+                    <div class="float-left">
+                        <p>&copy; @DateTime.Now.Year - Kagaroat Goku</p>
+                    </div>
+                </div>
+                <ul id="icons">
+                    <li><a href="https://www.facebook.com/kagaroat.goku" class="normaltip" title="Facebook">
+                        <img src="~/Images/icon1.png" alt=""></a></li>
+                    <li><a href="https://plus.google.com/105175454192774331300" class="normaltip" title="Delicious">
+                        <img src="~/Images/icon2.png" alt=""></a></li>
+                    <li><a href="https://www.freelancer.pk/u/kagaroatgoku.html" class="normaltip" title="Stumble Upon">
+                        <img src="~/Images/icon3.png" alt=""></a></li>
+                    <li><a href="https://twitter.com/tayyab873" class="normaltip" title="Twitter">
+                        <img src="~/Images/icon4.png" alt=""></a></li>
+                    <li><a href="https://www.linkedin.com/in/kagaroatgoku" class="normaltip" title="Linkedin">
+                        <img src="~/Images/icon5.png" alt=""></a></li>
+                </ul>
+            </div>
+            <!-- {%FOOTER_LINK} -->
+        </footer>
+        <!-- / footer -->
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

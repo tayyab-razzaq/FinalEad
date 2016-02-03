@@ -1,0 +1,155 @@
+﻿@model List<Final_Bootstrap.Models.Student>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add Student</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="~/Content/reset.css" type="text/css" media="all">
+    <link rel="stylesheet" href="~/Content/layout.css" type="text/css" media="all">
+    <link rel="stylesheet" href="~/Content/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="~/Content/ListMenu.css" type="text/css" media="all">
+
+    <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+      <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      <!-- Javascript -->
+      <script>
+          $(function () {
+              $("#datepicker-13").datepicker({
+                  changeMonth: true,//this option for allowing user to select month
+                  changeYear: true //this option for allowing user to select from year range
+              });
+
+              $("#datepicker-13").datepicker("show");
+
+          });
+      </script>
+    
+
+</head>
+
+
+<body id="page1">
+
+    <div class="body1">
+        <div class="body2">
+            <div class="body3">
+                <div class="main">
+                    <!-- header -->
+                    <header>
+                        <div class="wrapper">
+                            <h1><a href="/Home/Index" id="logo"></a></h1>
+                            <form id="search" method="post">
+                                <div>
+                                    <input type="submit" class="submit" value="">
+                                    <input class="input" type="text" value="Site Search" onblur="if(this.value=='') this.value='Site Search'" onfocus="if(this.value =='Site Search' ) this.value=''">
+                                </div>
+                            </form>
+                            <nav>
+                                <br />
+                                <ul id="menu">
+                                    <li class="active"><a href="/Administrator/Index">Home</a></li>
+                                    <li><a href="/Administrator/Profile">Profile</a></li>
+                                    <li><a href="/Administrator/FeedBack">Feedback</a></li>
+                                    <li class="end"><a href="/Administrator/Logout">Logout</a></li>
+                            </ul>
+                            </nav>
+                        </div>
+                    </header>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="body1">
+        <div class="main">
+
+            <section id="content">
+                <ul class="menu cf">
+		                            <li>
+                                        <a href="/Teacher/MarkAttendance">Mark Attendance</a>
+                                    </li>
+		                            <li>
+			                            <a href="/Teacher/ViewAttendance">View Attendance</a>
+		                            </li>
+	                            </ul>
+                <br /><br /><br />
+                
+                <p>Enter Date: <input type="text" id="datepicker-13"></p>
+        <form action="/Teacher/AttenMak" method="post">
+                <table><tr>
+                    <strong><td width="300">ID</td>
+                    <td width="300">Name</td>
+                    <td width="300">Attendance</td>
+                        </strong></tr>
+                    <tr>
+                        <td>
+                    <br />
+                    <br />
+                    <br />
+                            </td>
+                        </tr>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    
+                    <tr>
+                        <td>
+                            <label for=@Model[i].Id>@Model[i].Id</label>
+                        </td>
+                        <td>
+                    <label for=@Model[i].Name>@Model[i].Name</label>
+                        </td>
+                        <td>
+                            @Html.CheckBoxFor(x => Model[i].ChekBox)
+                        </tr>
+                }
+                    </table>
+            <input type="submit" value="Submit" />
+            </form>
+            </section>
+        </div>
+    </div>
+    <div class="body4">
+        <div class="main">
+            <section id="content2">
+                <div class="line2 wrapper">
+                    <div class="wrapper">
+                        <article class="col1">
+                            <h2>Intro and Purpose</h2>
+                            <div class="wrapper">
+                                <figure class="left marg_right1">
+                                    <img src="~/Images/page1_img2.jpg" alt="">
+                                </figure>
+                                <p>
+                                    It is a Portal developed for daily student attendance in Educational institutes.
+                                    The information is sorted by the operators, which will be provided by the teacher for a particular class.
+                                    This system will also help in evaluating attendance eligibility criteria of a student.
+                                </p>
+                            </div>
+                            <div class="pad">
+                                <p>
+                                    The purpose of developing attendance management system is to computerized the tradition way of taking attendance.
+                                    Another purpose for developing this portal is to generate the report automatically at the end of the session or in the between of the session
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="wrapper buttons">
+                        <article class="col1">
+                            <a href="/Home/DownloadFile2" class="button">Read More</a>
+                        </article>
+                        <article class="col3 pad_left1">
+                            <a href="#" class="button">Read More</a>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- / content -->
+
+
+</body>
+</html>
